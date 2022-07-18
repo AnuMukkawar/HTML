@@ -1,0 +1,11 @@
+.margineItems {
+    margin-left: 10%;
+}
+
+.footerborder {
+    border-right: 1px bold white;
+}
+
+.overridestyle{
+    margin-left: 0% !important ;
+}

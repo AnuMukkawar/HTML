@@ -1,0 +1,33 @@
+.container{
+    border: 1px solid black;
+    margin: 20px 20px 20px 0px;
+    padding: 10px 0px 30px 20px;
+    width: 60%; 
+    margin-left: 20%; 
+     
+}
+.required{
+    color: red;
+
+}
+
+.star-widget input{
+    display: none;
+}
+.star-widget label{
+font-size: 20px;
+color: #444;
+padding: 10px;
+float: left;
+transition: all 0.2s ease;
+}
+
+input:checked ~ label{
+ color: #fd4;
+}
+button{
+    background-color: #969696;
+    color: black;
+    border: 0.5px solid #323232;
+}
+
