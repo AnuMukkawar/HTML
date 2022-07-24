@@ -20,37 +20,29 @@ async function getCountries(){
           <p class="card-text mb-0">Region: ${ele.region}</p>
           <p class="card-text mb-0">Country code: ${ele.cioc}</p>
           <p class="card-text">Latlng: ${ele.latlng}</p>
-
-          <button class="btn btn-dark" type="button" onclick="${getWeatherData(ele.name)}">Click for weather</button>
+          <button class="btn btn-dark" type="button" onclick="getWeatherData(${ele.name})">Click for weather</button>
         </div>`
 
-        country.append(div1)
 
+        country.append(div1)
+        
     })
 }
 
 getCountries()
 
 let weatherContainer=document.getElementById('weatherContainer')
+
 async function getWeatherData(country){
-  console.log(country)
     let data=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=68efa0885519a6f01d76917c463ada68&units=metric`)
     let res=await data.json()
    
     let div2=document.createElement('div')
-div2.innerHTML=`<div class="row g-0">
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Weather Update ${country}</h5>
-              <p class="card-text m-0"><small class="text-muted">Humidity: ${data.main.humidity}</small></p>
-              <p class="card-text m-0"><small class="text-muted">Wind Speed: ${data.wind.speed}</small></p>
-              <p class="card-text m-0"><small class="text-muted">Temperature: ${data.main.temp}</small></p>
-              <p class="card-text m-0"><small class="text-muted">Description: ${data.weather[0].description}</small></p>
-
-            </div>
-          </div>
-        </div>
-`
+div2.innerHTML=`<p class="card-title">Weather Update</p>
+              <p class="card-text m-0"><small class="text-muted">Humidity: ${res.main.humidity}</small></p>
+              <p class="card-text m-0"><small class="text-muted">Wind Speed: ${res.wind.speed}</small></p>
+              <p class="card-text m-0"><small class="text-muted">Temperature: ${res.main.temp}</small></p>
+              <p class="card-text m-0"><small class="text-muted">Description: ${res.weather[0].description}</small></p>
+            `
 weatherContainer.append(div2)
 }
-

@@ -1,0 +1,13 @@
+#pagination-wrapper{
+     margin-left: 40%; 
+     margin-top: 40px;
+}
+
+table{
+    margin-top: 30px;
+    text-align: center
+}
+
+button{
+    border: 1px solid gray;
+}
